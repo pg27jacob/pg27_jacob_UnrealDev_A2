@@ -11,7 +11,7 @@
  * 
  */
 UCLASS()
-class ALIENVPREDATOR_API APredator : public ALivingOrganism
+class ALIENVPREDATOR_API APredator : public APawn, public IDamageInterface
 {
 	GENERATED_BODY()
 
