@@ -19,6 +19,19 @@ public:
 	// Sets default values for this actor's properties
 	APredator();
 
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+	
+	UPROPERTY(VisibleAnywhere)
+	class UFloatingPawnMovement* MovementComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera")
+	class USpringArmComponent* SpringArm;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera")
+	class UCameraComponent* Camera;
+
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -28,10 +41,6 @@ protected:
 
 	// Function to attempt to destroy the detected Alien
 	void ShootAtTarget(AActor* Target);
-
-public:
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
 
 private:
 	// How far the Predator can "see" with its raycast

@@ -54,6 +54,7 @@ void AMyPlayerController::MoveForward(const FInputActionValue& Value)
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
 		ControlledPawn->AddMovementInput(Direction, AxisValue * MovementSpeed * GetWorld()->GetDeltaSeconds());
+		GEngine->AddOnScreenDebugMessage(INDEX_NONE, 5.0f, FColor::Yellow, TEXT("Moving"));
 	}
 }
 
@@ -66,6 +67,7 @@ void AMyPlayerController::MoveRight(const FInputActionValue& Value)
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 		ControlledPawn->AddMovementInput(Direction, AxisValue * MovementSpeed * GetWorld()->GetDeltaSeconds());
+		GEngine->AddOnScreenDebugMessage(INDEX_NONE, 5.0f, FColor::Yellow, TEXT("Moving"));
 	}
 }
 
